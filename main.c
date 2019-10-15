@@ -4,20 +4,48 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-//practice 6
+//practice 7-C(n,r) 계산해주는 프로그램  
+
+int factorial(int n)
+{
+	int result =1;
+	int i;
+	for(i=1;i<=n;i++)
+	{
+		result=result*i;
+	}
+		
+	return result;
+}
 	
+int combination(int n,int r)
+{
+	int high,low;//분자 분모
+	high=factorial(n);
+	low= factorial(n-r)*factorial(r);
+	
+	return(high/low);	
+}
+
+
 
 int main(int argc, char *argv[]) {
 	
 	
-	int i;
-	int max=45;
+	int n,r;
+	int result;
 	
-	srand((unsigned) time(NULL));//랜덤한 패턴으로 나오게 해준다  
-	for(i=0;i<6;i++)
-	printf("%d ",1+rand()%max);
-	return 0;
+	printf("intput n and r : ");
+	scanf("%d %d",&n,&r);
 	
+
+	result=combination(n,r);
+	
+	printf("C(n,r)=%d",result);
+	
+	
+	return 0; 
+
 }
 
 	
